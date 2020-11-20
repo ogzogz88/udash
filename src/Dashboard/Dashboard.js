@@ -1,12 +1,17 @@
 import React from 'react'
 import Brand from './Brand'
 import Container from './Container'
+import GlobalStyle from './GlobalStyle'
 
 function Dashboard() {
     return (
-        <Container>
-            <Brand />
-        </Container>
+        <>
+            <GlobalStyle />
+            <Container>
+                <Brand />
+                <p>normal text</p>
+            </Container>
+        </>
     )
 }
 
