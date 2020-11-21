@@ -8,18 +8,38 @@ const options =
 {
     chart: {
         type: 'column',
-        height: '360px'
+        height: '360px',
+        style: {
+            fontFamily: `'Blinker', 'sans-serif'`,
+        },
+        events: {
+            load: function () {
+
+                this.update({
+                    legend: {
+                        labelFormatter: function () {
+                            var seriesData = this.data,
+                                pointSum = 0;
+                            seriesData.forEach(function (point) {
+                                pointSum += point.y;
+                            })
+                            return this.name + '<br />Total: ' + pointSum;
+                        }
+                    },
+                })
+            }
+        }
     },
     title: {
-        text: 'Stacked column chart'
+        text: 'Revenue by Product'
     },
     xAxis: {
-        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'TOTAL']
     },
     yAxis: {
         min: 0,
         title: {
-            text: 'Total fruit consumption'
+            text: 'Percentage of Products(%)'
         },
         stackLabels: {
             enabled: true,
@@ -33,11 +53,11 @@ const options =
         }
     },
     legend: {
-        align: 'right',
-        x: -30,
-        verticalAlign: 'top',
-        y: 25,
-        floating: true,
+        align: 'center',
+        x: 0,
+        verticalAlign: 'bottom',
+        y: 0,
+        floating: false,
         backgroundColor:
             Highcharts.defaultOptions.legend.backgroundColor || 'white',
         borderColor: '#CCC',
@@ -46,26 +66,42 @@ const options =
     },
     tooltip: {
         headerFormat: '<b>{point.x}</b><br/>',
-        pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+        pointFormat: '{series.name}: {point.y}, ({point.percentage:.0f}%)<br/>',
+        shared: true
     },
     plotOptions: {
         column: {
-            stacking: 'normal',
+            stacking: 'percent',
             dataLabels: {
-                enabled: true
+                enabled: false
             }
+        },
+        series: {
+            borderWidth: 0
         }
     },
-    series: [{
-        name: 'John',
-        data: [5, 3, 4, 7, 2]
-    }, {
-        name: 'Jane',
-        data: [2, 2, 3, 2, 1]
-    }, {
-        name: 'Joe',
-        data: [3, 4, 4, 2, 5]
-    }]
+    series: [
+        {
+            name: 'Phones',
+            data: [15, 13, 24, 7, 2, 5, 3, 4, 7, 25, 10, 33],
+            color: '#A6A8DD'
+        },
+        {
+            name: 'Services',
+            data: [2, 12, 3, 2, 21, 6, 6, 5, 8, 22, 7, 12],
+            color: '#5C60C1'
+        },
+        {
+            name: 'Laptops',
+            data: [13, 14, 14, 2, 5, 25, 3, 4, 7, 6, 8, 27],
+            color: '#2D2F76'
+        },
+        {
+            name: 'Tablets',
+            data: [23, 24, 14, 12, 15, 5, 23, 4, 7, 10, 8, 7],
+            color: '#11122D'
+        }
+    ]
 }
 
 
