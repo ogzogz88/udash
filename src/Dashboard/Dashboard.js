@@ -4,6 +4,7 @@ import Container from './Container'
 import GlobalStyle from './GlobalStyle'
 import Card from './Card'
 import Chart from './Chart'
+import VirtualizedTable from './Table'
 
 function Dashboard() {
     return (
@@ -12,7 +13,7 @@ function Dashboard() {
             <Container>
                 <Brand />
                 <Chart />
-                <Card height={400}>Table goes here</Card>
+                <VirtualizedTable />
             </Container>
         </>
     )
