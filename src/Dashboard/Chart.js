@@ -47,7 +47,8 @@ function getOptions(dark) {
         xAxis: {
             labels: {
                 style: {
-                    color: dark ? lightGrey : 'black'
+                    color: dark ? lightGrey : 'black',
+                    fontSize: '12px',
                 }
             },
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -70,10 +71,7 @@ function getOptions(dark) {
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
-                    color: ( // theme
-                        Highcharts.defaultOptions.title.style &&
-                        Highcharts.defaultOptions.title.style.color
-                    ) || 'gray'
+                    color: dark ? lightGrey : darkGrey
                 }
             }
         },
@@ -121,7 +119,7 @@ function getOptions(dark) {
 
 
 function Chart() {
-    const [theme, setTheme] = useContext(ThemeContext);
+    const [theme] = useContext(ThemeContext);
     const dark = theme === 'dark';
     return (
         <Card height={400} dark={dark}>
