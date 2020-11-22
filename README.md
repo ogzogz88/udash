@@ -1,3 +1,15 @@
+# UDash : A bussines chart application showing revenue by product with a stacked column chart and table.
+
+You can see revenue and number information based on products.
+
+## Tech Stack
+
+This project is based on Context API, useContext and Highcharts library.
+
+## Live project
+
+It is deployed with surge and live at http://udash-dashboard.surge.sh/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
