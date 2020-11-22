@@ -4,7 +4,7 @@ import { tableRows, tableColumns } from './Data'
 import { AutoSizer, Column, Table } from 'react-virtualized'
 import 'react-virtualized/styles.css'
 import Card from './Card'
-import { brandColor, medGrey, lightGrey } from './GlobalStyle'
+import { brandColor, medGrey } from './GlobalStyle'
 import { ThemeContext } from './Dashboard'
 
 const ROW_HEIGHT = 48;
