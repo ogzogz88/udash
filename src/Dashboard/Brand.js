@@ -3,7 +3,7 @@ import React from 'react'
 function Brand() {
     return (
         <div>
-            <h1>Udash Bussiness Corporation</h1>
+            <h1>Udash Buss.Corp.</h1>
         </div>
     )
 }
